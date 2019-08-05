@@ -1,5 +1,5 @@
 #include "hwlib.hpp"
-#include "pwm_s.hpp"
+#include "servo_c.hpp"
 
 int main(void) {
   // kill the watchdog

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace r2d2 {
+namespace r2d2::servo_interface {
     struct pwm_s {
         /**
          * the lenght of one PWM cycle in us
