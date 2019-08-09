@@ -1,4 +1,4 @@
-#include "servo_c.hpp"
+#include <servo_c.hpp>
 
 namespace r2d2::servo_interface {
     int16_t servo_c::get_angle() {

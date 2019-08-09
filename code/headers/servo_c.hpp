@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pwm_s.hpp"
+#include <pwm_s.hpp>
 
 namespace r2d2::servo_interface {
     class servo_c {

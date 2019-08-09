@@ -1,6 +1,10 @@
-#include "sg90_c.hpp"
+#include <sg90_c.hpp>
 
 namespace r2d2::servo_interface {
+    sg90_c::sg90_c() {
+        pwm.frequency = pwm_frequency_hz;
+    }
+
     void sg90_c::set_angle(const int16_t &new_angle) {
         if (new_angle >= min_rotation && new_angle <= max_rotation) {
             angle = new_angle;

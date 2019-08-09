@@ -1,6 +1,6 @@
 #pragma once
 
-#include "servo_c.hpp"
+#include <servo_c.hpp>
 
 namespace r2d2::servo_interface {
     class sg90_c : public servo_c {
@@ -48,9 +48,7 @@ namespace r2d2::servo_interface {
          * basic contructor that sets default frequency for pwm from servo_c
          * class
          */
-        sg90_c() {
-            pwm.frequency = pwm_frequency_hz;
-        }
+        sg90_c();
 
         /**
          * implements function from servo_c class

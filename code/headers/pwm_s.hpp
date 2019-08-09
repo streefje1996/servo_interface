@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hwlib.hpp"
+#include <hwlib.hpp>
 
 namespace r2d2::servo_interface {
     struct pwm_s {
