@@ -1,9 +1,11 @@
 #include "servo_c.hpp"
 
-int16_t r2d2::servo_interface::servo_c::get_angle() {
-    return angle;
-}
+namespace r2d2::servo_interface {
+    int16_t servo_c::get_angle() {
+        return angle;
+    }
 
-r2d2::servo_interface::pwm_s r2d2::servo_interface::servo_c::get_pwm() {
-    return pwm;
-}
+    pwm_s servo_c::get_pwm() {
+        return pwm;
+    }
+} // namespace r2d2::servo_interface

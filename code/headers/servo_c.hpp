@@ -7,11 +7,11 @@ namespace r2d2::servo_interface {
     protected:
         /**
          * the current angle the servo is at
-		 * this value can be anywhere between -360 to +360
+         * this value can be anywhere between -360 to +360
          */
         int16_t angle;
 
-		/**
+        /**
          * the pwm needed to put the servo at the desired angle
          */
         pwm_s pwm;
@@ -20,27 +20,26 @@ namespace r2d2::servo_interface {
         /**
          * sets the angle and the pwm accordingly to the servo
          *
-		 * @param new_angle - the new angle of the servo
+         * @param new_angle - the new angle of the servo
          */
         virtual void set_angle(const int16_t &new_angle) = 0;
 
-		/**
+        /**
          * returns the current angle the servo is set to
          */
         int16_t get_angle();
 
-		/**
+        /**
          * add to the current angle of the servo
-		 * and update the pwm accordingly
+         * and update the pwm accordingly
          *
          * @param adding_angle - the desired angle to be added
          */
         virtual void add_angle(const int16_t &adding_angle) = 0;
 
-		/**
+        /**
          * returns the PWM to set the servo to the set angle
          */
         pwm_s get_pwm();
-
     };
-} // namespace r2d2_servo_interface
+} // namespace r2d2::servo_interface
