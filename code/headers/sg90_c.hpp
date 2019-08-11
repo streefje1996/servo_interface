@@ -4,6 +4,7 @@
 
 namespace r2d2::servo_interface {
     class sg90_c : public servo_c {
+    protected:
         /**
          * the PWM frequency this servo operates on in Hz
          * @internal
@@ -57,7 +58,7 @@ namespace r2d2::servo_interface {
          *
          * @param new_angle - the new angle of the servo
          */
-        void set_angle(const int16_t &new_angle) override;
+        virtual void set_angle(const int16_t &new_angle) override;
 
         /**
          * implements function from servo_c class
@@ -67,6 +68,6 @@ namespace r2d2::servo_interface {
          *
          * @param adding_angle - the desired angle to be added
          */
-        void add_angle(const int16_t &adding_angle) override;
+        virtual void add_angle(const int16_t &adding_angle) override;
     };
 } // namespace r2d2::servo_interface

@@ -23,6 +23,10 @@ include              $(I2C)/Makefile.inc
 PWM		              ?= ../../../libraries/PWM_library
 include               $(PWM)/Makefile.inc
 
+# add the rtos
+RTOS              ?= ../../../libraries/rtos
+include           $(RTOS)/makefile.inc
+
 # defer to the Makefile.link
 include           $(RELATIVE)/Makefile.link
 
