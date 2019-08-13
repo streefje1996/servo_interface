@@ -26,8 +26,10 @@ namespace r2d2::servo_interface {
 
         /**
          * returns the current angle the servo is set to
+         *
+         * @return the current angle of the servo
          */
-        int16_t get_angle();
+        virtual int16_t get_angle();
 
         /**
          * add to the current angle of the servo
@@ -39,7 +41,9 @@ namespace r2d2::servo_interface {
 
         /**
          * returns the PWM to set the servo to the set angle
+         *
+         * @return the current pwm of the servo
          */
-        pwm_s get_pwm();
+        virtual pwm_s get_pwm();
     };
 } // namespace r2d2::servo_interface

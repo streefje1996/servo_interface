@@ -11,40 +11,40 @@ namespace r2d2::servo_interface {
          * @internal
          */
         rtos::clock pwm_period;
-		
-		/**
+
+        /**
          * timer on how long the signal should be active
          * @internal
          */
         rtos::timer on_timer;
 
-		/**
+        /**
          * pool that holds the angle that needs to be set
          * @internal
          */
         rtos::pool<int16_t> angle_pool;
 
-		/**
+        /**
          * mutex for protecting the angle_pool
          * @internal
          */
         rtos::mutex angle_mutex;
 
-		/**
+        /**
          * data pin which the servo is connected to
          * @internal
          */
         hwlib::pin_out &data_pin;
 
-		/**
+        /**
          * states for the state machine
-		 * low - pin is logic 0
-		 * high - pin is logic 1
+         * low - pin is logic 0
+         * high - pin is logic 1
          * @internal
          */
         enum class states { low, high };
 
-		/**
+        /**
          * keeps track of the current state
          * @internal
          */
@@ -53,10 +53,10 @@ namespace r2d2::servo_interface {
     public:
         /**
          * default constructor
-		 * initializes rtos components and state machine
-		 *
-		 * @param data_out - pin wich the servo is connected to
-		 * @param name - name of this rtos task
+         * initializes rtos components and state machine
+         *
+         * @param data_out - pin wich the servo is connected to
+         * @param name - name of this rtos task
          */
         sg90_rtos_c(hwlib::pin_out &data_out, char *name)
             : task(1, name),
@@ -68,7 +68,7 @@ namespace r2d2::servo_interface {
               state(states::low) {
         }
 
-		/**
+        /**
          * implements function from sg90_c class
          *
          * sets the angle_pool
@@ -77,7 +77,7 @@ namespace r2d2::servo_interface {
          */
         void set_angle(const int16_t &new_angle) override;
 
-		/**
+        /**
          * implements function from sg90_c class
          *
          * sets the angle_pool with current angle added
@@ -86,7 +86,7 @@ namespace r2d2::servo_interface {
          */
         void add_angle(const int16_t &adding_angle) override;
 
-		/**
+        /**
          * implements function from rtos
          */
         void main() override;

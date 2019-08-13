@@ -74,6 +74,14 @@ namespace r2d2::servo_interface {
         const uint16_t counts = 4096;
 
         /**
+         * sends the internal led_cmd over the bus
+         *
+         * @param id - the id of the servo that needs to be sent
+         * @internal
+         */
+        void send_to_bus(const uint8_t &id);
+
+        /**
          * an overloaded function used to unpack the parameter pack
          *
          * @param servo - the first servo in the parameter list

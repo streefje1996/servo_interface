@@ -3,6 +3,7 @@
 namespace r2d2::servo_interface {
     sg90_c::sg90_c() {
         pwm.frequency = pwm_frequency_hz;
+        angle = min_rotation;
     }
 
     void sg90_c::set_angle(const int16_t &new_angle) {
