@@ -13,6 +13,12 @@ namespace r2d2::servo_interface {
             pwm.time_on_us =
                 (angle - min_rotation) * rotation_time_ratio + min_time_on_us;
 
+            /*
+            calculate the frequency in us
+            by dividing 1 through the frequency results in seconds
+            multiply by 1 000 000 to get to micro seconds
+            multiply by number of steps 255
+            */
             pwm.duty_cycle =
                 pwm.time_on_us / (1.f / pwm.frequency * 1'000'000) * 255;
         }

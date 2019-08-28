@@ -2,6 +2,11 @@
 
 namespace r2d2::servo_interface {
     void pca9685_c::send_to_bus(const uint8_t &id) {
+        /*
+        calculate the frequency in us
+        by dividing 1 through the frequency results in seconds
+        multiply by 1 000 000 to get to micro seconds
+        */
         double frequency_in_us =
             (1.f / servos[id]->get_pwm().frequency * 1'000'000);
 
@@ -33,10 +38,9 @@ namespace r2d2::servo_interface {
 
     void pca9685_c::add_angle(const uint8_t &id, const int16_t &added_angle) {
         if (id < servo_index) {
-			servos[id]->add_angle(added_angle);
-			send_to_bus(id);
-		}
-        
+            servos[id]->add_angle(added_angle);
+            send_to_bus(id);
+        }
     }
 
 } // namespace r2d2::servo_interface

@@ -74,6 +74,12 @@ namespace r2d2::servo_interface {
         const uint16_t counts = 4096;
 
         /**
+         * the oscillator clock in hz
+         * @internal
+         */
+        const uint32_t osc_clock_hz = 25'000'000;
+
+        /**
          * sends the internal led_cmd over the bus
          *
          * @param id - the id of the servo that needs to be sent
@@ -110,12 +116,12 @@ namespace r2d2::servo_interface {
                 uint8_t pre_scale_cmd[2] = {
                     reg_pre_scale,
                     static_cast<uint8_t>(
-                        25'000'000.f / (servo.get_pwm().frequency * counts) -
+                        osc_clock_hz / (servo.get_pwm().frequency * counts) -
                         1)};
                 i2c_bus.write(slave_address, pre_scale_cmd, 2);
                 hwlib::wait_ms(10);
 
-                uint8_t startup_cmd[2] = {reg_mode_1, 32};
+                uint8_t startup_cmd[2] = {reg_mode_1, default_startup_cmd};
                 i2c_bus.write(slave_address, startup_cmd, 2);
                 hwlib::wait_ms(10);
             } else {
@@ -140,6 +146,7 @@ namespace r2d2::servo_interface {
          *
          * @param id - the id of the servo that needs to be selected
          * @param new_angle - the angle you want the selected servo to turn to
+         * in degrees from -360 to +360
          */
         void set_angle(const uint8_t &id, const int16_t &new_angle);
 
@@ -156,6 +163,7 @@ namespace r2d2::servo_interface {
          *
          * @param id - the id of the servo that needs to be selected
          * @param added_angle - the angle you want to add to the selected servo
+         * in degrees from -360 to +360
          */
         void add_angle(const uint8_t &id, const int16_t &added_angle);
 

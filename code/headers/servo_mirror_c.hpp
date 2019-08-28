@@ -18,7 +18,8 @@ namespace r2d2::servo_interface {
          *
          * sets the angle mirrored and the pwm accordingly to the servo
          *
-         * @param new_angle - the new mirrored angle of the servo
+         * @param new_angle - the new mirrored angle of the servo in degrees
+         * from -360 to +360
          */
         void set_angle(const int16_t &new_angle) override;
 
@@ -28,7 +29,8 @@ namespace r2d2::servo_interface {
          * add to the current mirrored angle of the servo
          * and update the pwm accordingly
          *
-         * @param adding_angle - the desired mirrored angle to be added
+         * @param adding_angle - the desired mirrored angle to be added in
+         * degrees from -360 to +360
          */
         void add_angle(const int16_t &adding_angle) override;
     };

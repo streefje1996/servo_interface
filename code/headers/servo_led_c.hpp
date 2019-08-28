@@ -26,7 +26,8 @@ namespace r2d2::servo_interface {
          *
          * blinks a led before moving the servo
          *
-         * @param new_angle - the new angle of the servo
+         * @param new_angle - the new angle of the servo in degrees from
+         * -360 to +360
          */
         void set_angle(const int16_t &new_angle) override;
     };

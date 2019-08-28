@@ -18,7 +18,8 @@ namespace r2d2::servo_interface {
          * sets the angle and the pwm accordingly to the servo
          * and logs it to the console
          *
-         * @param new_angle - the new angle of the servo
+         * @param new_angle - the new angle of the servo in degrees from
+         * -360 to +360
          */
         void set_angle(const int16_t &new_angle) override;
 
@@ -28,7 +29,8 @@ namespace r2d2::servo_interface {
          * add to the current angle of the servo, update the pwm accordingly
          * and logs it to the console
          *
-         * @param adding_angle - the desired angle to be added
+         * @param adding_angle - the desired angle to be added in degrees from
+         * -360 to +360
          */
         void add_angle(const int16_t &adding_angle) override;
     };
